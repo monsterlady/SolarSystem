@@ -47,10 +47,12 @@ public class PlanetOrbit : MonoBehaviour
 			// create a new material for it
 			line.material   = new Material(Shader.Find("Particles/Alpha Blended"));
 			// and color it
-			line.SetColors( lineColor, lineColor);
+			line.startColor = lineColor;
+			line.endColor = lineColor;
 			// define its size
-			line.SetWidth( lineWidth, lineWidth);
-			line.SetVertexCount (segments + 1);
+			line.startWidth =  lineWidth;
+			line.endWidth = lineWidth;
+			line.positionCount =  (segments + 1);
 			// and make sure its in world space
 			line.useWorldSpace = true;
 
