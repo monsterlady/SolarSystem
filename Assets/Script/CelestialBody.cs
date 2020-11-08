@@ -29,6 +29,8 @@ public class CelestialBody : MonoBehaviour
     [Tooltip("Defines the line width of the rendered circle for the trajectory.")]
     public float lineWidth = 0.05f;
 
+    [Tooltip("System controller")] public GameObject controller;
+
     private Vector3 m_RotationAxis;
     private const float AROUND = 360f;
     private float m_Speed;
@@ -40,6 +42,23 @@ public class CelestialBody : MonoBehaviour
     public Material m_Material;
     private Vector3 desiredPosition;
     private float m_Scale;
+    float doubleClickStart = 0;
+    void OnMouseUp()
+    {
+        if ((Time.time - doubleClickStart) < 0.3f)
+        {
+            this.OnDoubleClick();
+            doubleClickStart = -1;
+        }
+        else
+        {
+            doubleClickStart = Time.time;
+        }
+    }
+    void OnDoubleClick()
+    {
+        Debug.Log(gameObject.name);
+    }
 
 
     // Start is called before the first frame update
@@ -50,7 +69,7 @@ public class CelestialBody : MonoBehaviour
 
         Quaternion dot = Quaternion.Euler(0, 0, obliquity);
         m_RotationAxis = dot * (sClockwise ? Vector3.up : Vector3.down);
-        m_Speed = gameObject.GetComponentInParent<SolarSystemSetting>().Speed;
+        m_Speed = controller.GetComponentInParent<SolarSystemSetting>().Speed;
         if (center)
         {
             m_Revolutiondegree = AROUND / periodRevolution;
@@ -61,7 +80,7 @@ public class CelestialBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_Speed = gameObject.GetComponentInParent<SolarSystemSetting>().Speed;
+        m_Speed = controller.GetComponentInParent<SolarSystemSetting>().Speed;
         SelfRotate();
         //Debug.DrawRay(transform.position,m_RotationAxis,lineColor,20);
     }
@@ -138,4 +157,6 @@ public class CelestialBody : MonoBehaviour
         get => m_Scale;
         set => m_Scale = value;
     }
+    
+    
 }

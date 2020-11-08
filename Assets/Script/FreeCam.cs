@@ -104,12 +104,12 @@ public class FreeCam : MonoBehaviour
         //Zoom out
                if (Input.GetAxis("Mouse ScrollWheel") <0 )
                {
-                   GameObject.Find("SolarSystem").GetComponent<SolarSystemSetting>().DecreaseSpeed();
+                   GameObject.FindGameObjectWithTag("GameController").GetComponent<SolarSystemSetting>().DecreaseSpeed();
                }
                //Zoom in
                if (Input.GetAxis("Mouse ScrollWheel") > 0)
                {
-                   GameObject.Find("SolarSystem").GetComponent<SolarSystemSetting>().IncreaseSpeed();
+                   GameObject.FindGameObjectWithTag("GameController").GetComponent<SolarSystemSetting>().IncreaseSpeed();
                }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
