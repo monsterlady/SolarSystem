@@ -17,7 +17,8 @@ public class SolarSystemSetting:MonoBehaviour
             // 初始化行星位置
             var position = plant.GetComponent<CelestialBody>().center.transform.position;
             plant.transform.position = position + new Vector3(plant.GetComponent<CelestialBody>().distanceToCenter * scale, 0, 0);
-            plant.GetComponent<CelestialBody>().CreatePoints();
+            plant.GetComponent<CelestialBody>().Scale = scale;
+            //plant.GetComponent<CelestialBody>().CreatePoints();
         }
     }
 

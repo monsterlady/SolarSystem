@@ -39,6 +39,7 @@ public class CelestialBody : MonoBehaviour
     private LineRenderer line;
     public Material m_Material;
     private Vector3 desiredPosition;
+    private float m_Scale;
 
 
     // Start is called before the first frame update
@@ -76,13 +77,9 @@ public class CelestialBody : MonoBehaviour
     
     void LateUpdate()
     {
-        if (gameObject.CompareTag("Moon"))
+         if (center)
         {
             CreatePoints();
-            OrbitRotate();
-        }
-        else if (center)
-        {
             OrbitRotate();
         }
     }
@@ -126,14 +123,19 @@ public class CelestialBody : MonoBehaviour
             line.positionCount = (segments + 1);
             // and make sure its in world space
             line.useWorldSpace = true;
-            Transform currentPosition = transform;
             // Loops through the amount of segments, our circle should have and set the line position for each segment
             for (int i = 0; i < (segments + 1); i++)
             {
-                currentPosition.RotateAround(center.transform.position, Vector3.up, i * 0.04375f); // i * 0.04375f
-                Vector3 linePos = currentPosition.position;
-                line.SetPosition(i, linePos);
+                var rad = Mathf.Deg2Rad * (i * 360f / segments);
+                var linePos = new Vector3(Mathf.Sin(rad) * distanceToCenter *  Scale, 0, Mathf.Cos(rad) * distanceToCenter * Scale) + center.transform.position;
+                line.SetPosition(i,linePos);
             }
         }
+    }
+
+    public float Scale
+    {
+        get => m_Scale;
+        set => m_Scale = value;
     }
 }
