@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Vectrosity;
 
 public class CelestialBody : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class CelestialBody : MonoBehaviour
 
     [Tooltip("System controller")] public GameObject controller;
 
+    [Tooltip("Large plant comparing to Earth")]public bool isLarge;
+
     private Vector3 m_RotationAxis;
     private const float AROUND = 360f;
     private float m_Speed;
@@ -42,6 +45,7 @@ public class CelestialBody : MonoBehaviour
     public Material m_Material;
     private Vector3 desiredPosition;
     private float m_Scale;
+    private bool showingAT = false;
     float doubleClickStart = 0;
     void OnMouseUp()
     {
@@ -80,18 +84,20 @@ public class CelestialBody : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //
         m_Speed = controller.GetComponentInParent<SolarSystemSetting>().Speed;
+        showingAT = controller.GetComponentInParent<SolarSystemSetting>().isShow;
+        //
         SelfRotate();
-        //Debug.DrawRay(transform.position,m_RotationAxis,lineColor,20);
+        if (showingAT)
+        {
+            DrawAxialTilt();
+        }
     }
 
     void SelfRotate()
     {
-       
         transform.RotateAround(transform.position, m_RotationAxis, m_AngularPers * Time.deltaTime * m_Speed);
-        
-
-        
     }
     
     void LateUpdate()
@@ -115,15 +121,14 @@ public class CelestialBody : MonoBehaviour
             m_Speed * Time.deltaTime * m_Revolutiondegree);
         desiredPosition = transform.position - center.transform.position;
     }
-
+    
     /// <summary>
     /// Draws the axial tilt
     /// </summary>
-    void OnDrawGizmos()
+    void DrawAxialTilt()
     {
-        // Draws the axial tilt
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, -m_RotationAxis * 2);
+        VectorLine.SetRay3D(Color.green, Time.deltaTime,transform.position, m_RotationAxis  * (isLarge ? (Scale / 2) : 1));
+        VectorLine.SetRay3D(Color.green, Time.deltaTime,transform.position, -m_RotationAxis * (isLarge ? (Scale / 2) : 1));
     }
 
     public void CreatePoints()

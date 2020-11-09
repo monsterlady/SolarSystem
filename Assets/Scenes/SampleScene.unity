@@ -168,15 +168,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 491418, guid: 9e1d8922ae981ae479b3106da4526aba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.009994626
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491418, guid: 9e1d8922ae981ae479b3106da4526aba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.05457598
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491418, guid: 9e1d8922ae981ae479b3106da4526aba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.022265434
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491418, guid: 9e1d8922ae981ae479b3106da4526aba, type: 3}
       propertyPath: m_LocalRotation.x
@@ -227,6 +227,7 @@ MonoBehaviour:
   lineColor: {r: 0.41152143, g: 0, b: 1, a: 1}
   lineWidth: 5
   controller: {fileID: 717103978}
+  isLarge: 1
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &240785159
 LineRenderer:
@@ -351,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266780612}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2905867, y: -8.005493, z: 9.244067}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 28488814}
@@ -378,10 +379,11 @@ MonoBehaviour:
   rotationPeriod: 24.47
   periodRevolution: 0
   obliquity: 7.25
-  lineColor: {r: 1, g: 0, b: 0, a: 1}
+  lineColor: {r: 0.14856768, g: 0.8962264, b: 0.114142045, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
-  m_Material: {fileID: 0}
+  isLarge: 1
+  m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!1 &284420900 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 154916, guid: 824cb67f30b506040adb241d0e722e9a, type: 3}
@@ -471,6 +473,7 @@ MonoBehaviour:
   lineColor: {r: 0.4995995, g: 0.9278544, b: 0.9716981, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
+  isLarge: 0
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &336571165
 LineRenderer:
@@ -695,6 +698,7 @@ MonoBehaviour:
   lineColor: {r: 0.011747932, g: 0.8301887, b: 0.76685095, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
+  isLarge: 0
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!1 &579294593 stripped
 GameObject:
@@ -874,7 +878,9 @@ MonoBehaviour:
   - {fileID: 240785156}
   - {fileID: 1935386565}
   - {fileID: 1428137928}
+  - {fileID: 266780612}
   scale: 30
+  showAxialTilt: 1
 --- !u!1 &776103374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 159036, guid: 1439b50f87f6306438128ffab8bc1d68, type: 3}
@@ -1000,6 +1006,7 @@ MonoBehaviour:
   lineColor: {r: 1, g: 0, b: 0.8291087, a: 1}
   lineWidth: 5
   controller: {fileID: 717103978}
+  isLarge: 1
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!1001 &802366314
 PrefabInstance:
@@ -1244,7 +1251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.09229593, y: -0.7010574, z: 0.09229593, w: 0.7010574}
-  m_LocalPosition: {x: 35, y: -5, z: 10}
+  m_LocalPosition: {x: 35, y: 2.5, z: 2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1267,6 +1274,7 @@ MonoBehaviour:
   freeLookSensitivity: 3
   zoomSensitivity: 10
   fastZoomSensitivity: 50
+  controller: {fileID: 717103978}
 --- !u!1 &1003065674 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 103782, guid: 645fd8938c641a040b433ba2a278a44f, type: 3}
@@ -1294,6 +1302,7 @@ MonoBehaviour:
   lineColor: {r: 0.6200416, g: 1, b: 0, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
+  isLarge: 0
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &1003065677
 LineRenderer:
@@ -1579,6 +1588,7 @@ MonoBehaviour:
   lineColor: {r: 0.7364602, g: 1, b: 0, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
+  isLarge: 0
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!1001 &1113879349
 PrefabInstance:
@@ -1876,6 +1886,7 @@ MonoBehaviour:
   lineColor: {r: 0.5235849, g: 1, b: 0.821933, a: 1}
   lineWidth: 5
   controller: {fileID: 717103978}
+  isLarge: 1
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &1428137931
 LineRenderer:
@@ -2209,6 +2220,7 @@ MonoBehaviour:
   lineColor: {r: 1, g: 0.9880785, b: 0, a: 1}
   lineWidth: 5
   controller: {fileID: 717103978}
+  isLarge: 1
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &1864010437
 LineRenderer:
@@ -2229,7 +2241,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 89ff19d667a6a5d4bb76df1fcb718402, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2530,6 +2542,7 @@ MonoBehaviour:
   lineColor: {r: 0.8346616, g: 1, b: 0, a: 1}
   lineWidth: 5
   controller: {fileID: 717103978}
+  isLarge: 1
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!1001 &2009676258
 PrefabInstance:
@@ -2643,6 +2656,7 @@ MonoBehaviour:
   lineColor: {r: 1, g: 0, b: 0, a: 1}
   lineWidth: 0.05
   controller: {fileID: 717103978}
+  isLarge: 0
   m_Material: {fileID: 2100000, guid: 8efe54d2be7991047a69746efb3e69b6, type: 2}
 --- !u!120 &2056161929
 LineRenderer:

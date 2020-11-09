@@ -49,6 +49,8 @@ public class FreeCam : MonoBehaviour
     /// </summary>
     private bool looking = false;
 
+    public GameObject controller;
+
     void Update()
     {
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -93,7 +95,7 @@ public class FreeCam : MonoBehaviour
         {
             transform.position = transform.position + (-Vector3.up * movementSpeed * Time.deltaTime);
         }
-
+        
         if (looking)
         {
             float newRotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * freeLookSensitivity;
@@ -104,12 +106,12 @@ public class FreeCam : MonoBehaviour
         //Zoom out
                if (Input.GetAxis("Mouse ScrollWheel") <0 )
                {
-                   GameObject.FindGameObjectWithTag("GameController").GetComponent<SolarSystemSetting>().DecreaseSpeed();
+                   controller.GetComponent<SolarSystemSetting>().DecreaseSpeed();
                }
                //Zoom in
                if (Input.GetAxis("Mouse ScrollWheel") > 0)
                {
-                   GameObject.FindGameObjectWithTag("GameController").GetComponent<SolarSystemSetting>().IncreaseSpeed();
+                   controller.GetComponent<SolarSystemSetting>().IncreaseSpeed();
                }
 
         if (Input.GetKeyDown(KeyCode.Mouse1))

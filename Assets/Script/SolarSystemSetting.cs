@@ -8,6 +8,7 @@ public class SolarSystemSetting:MonoBehaviour
     [SerializeField] public float speed;
     [SerializeField] public GameObject[] plants;
     [SerializeField] public float scale;
+    public bool showAxialTilt;
 
 
         void Awake()
@@ -15,14 +16,35 @@ public class SolarSystemSetting:MonoBehaviour
         foreach (GameObject plant in plants)
         {
             // 初始化行星位置
-            var position = plant.GetComponent<CelestialBody>().center.transform.position;
-            plant.transform.position = position + new Vector3(plant.GetComponent<CelestialBody>().distanceToCenter * scale, 0, 0);
+            if (plant.GetComponent<CelestialBody>().center)
+            {
+                var position = plant.GetComponent<CelestialBody>().center.transform.position;
+                plant.transform.position = position + new Vector3(plant.GetComponent<CelestialBody>().distanceToCenter * scale, 0, 0);
+            }
             plant.GetComponent<CelestialBody>().Scale = scale;
-            //plant.GetComponent<CelestialBody>().CreatePoints();
         }
     }
 
-    public void DecreaseSpeed()
+
+         void Update()
+        {
+            if (Input.GetKey(KeyCode.M))
+            {
+                if (showAxialTilt)
+                {
+                    showAxialTilt = false;
+                }
+                else
+                {
+                    showAxialTilt = true;
+                }
+            }
+        }
+
+        public bool isShow => showAxialTilt;
+        
+
+        public void DecreaseSpeed()
     {
         if (speed  >= 0f)
         {
