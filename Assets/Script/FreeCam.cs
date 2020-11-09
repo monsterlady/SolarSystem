@@ -51,6 +51,14 @@ public class FreeCam : MonoBehaviour
 
     public GameObject controller;
 
+    public GameObject focus;
+
+    public Vector3 offset;
+
+    public float smoothedSpeed;
+
+    private bool adjustCamera;
+
     void Update()
     {
         var fastMode = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
@@ -121,6 +129,32 @@ public class FreeCam : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.Mouse1))
         {
             StopLooking();
+        }
+
+        if (Input.GetKeyUp(KeyCode.N))
+        {
+            //取消焦点
+            focus = null;
+        }
+
+        if (focus)
+        {
+            
+            Vector3 desirePosition = focus.transform.position + (focus.transform.root.gameObject.GetComponent<CelestialBody>().isLarge ? offset * 10: offset);
+            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desirePosition, smoothedSpeed);
+            transform.position = smoothedPosition;
+            if (!adjustCamera)
+            {
+                gameObject.transform.LookAt(focus.transform);
+                adjustCamera = true;
+            }
+
+            controller.GetComponent<SolarSystemSetting>().UpdatePlantInfo(focus.GetComponent<PlantInfo>().ToString());
+        }
+        else
+        {
+            adjustCamera = false;
+            controller.GetComponent<SolarSystemSetting>().WrapPlantInfo();
         }
     }
 

@@ -46,25 +46,7 @@ public class CelestialBody : MonoBehaviour
     private Vector3 desiredPosition;
     private float m_Scale;
     private bool showingAT = false;
-    float doubleClickStart = 0;
-    void OnMouseUp()
-    {
-        if ((Time.time - doubleClickStart) < 0.3f)
-        {
-            this.OnDoubleClick();
-            doubleClickStart = -1;
-        }
-        else
-        {
-            doubleClickStart = Time.time;
-        }
-    }
-    void OnDoubleClick()
-    {
-        Debug.Log(gameObject.name);
-    }
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -127,8 +109,8 @@ public class CelestialBody : MonoBehaviour
     /// </summary>
     void DrawAxialTilt()
     {
-        VectorLine.SetRay3D(Color.green, Time.deltaTime,transform.position, m_RotationAxis  * (isLarge ? (Scale / 2) : 1));
-        VectorLine.SetRay3D(Color.green, Time.deltaTime,transform.position, -m_RotationAxis * (isLarge ? (Scale / 2) : 1));
+        VectorLine.SetRay3D(Color.green, Time.deltaTime ,transform.position, m_RotationAxis  * (isLarge ? (Scale / 2) : 1));
+        VectorLine.SetRay3D(Color.green, Time.deltaTime ,transform.position, -m_RotationAxis * (isLarge ? (Scale / 2) : 1));
     }
 
     public void CreatePoints()

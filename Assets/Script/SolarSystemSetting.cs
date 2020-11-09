@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
+using UnityEngine.UI;
 
 public class SolarSystemSetting:MonoBehaviour
 {
@@ -9,6 +11,8 @@ public class SolarSystemSetting:MonoBehaviour
     [SerializeField] public GameObject[] plants;
     [SerializeField] public float scale;
     public bool showAxialTilt;
+    public Text universalSpeed;
+    public Text info;
 
 
         void Awake()
@@ -54,7 +58,7 @@ public class SolarSystemSetting:MonoBehaviour
                 speed = 0f;
             }
         }
-        Debug.Log("速度 : " + speed +" 天 / 秒");
+        UpdateSpeedText();
     }
 
     public float Speed => speed;
@@ -62,7 +66,23 @@ public class SolarSystemSetting:MonoBehaviour
     public void IncreaseSpeed()
     {
         speed += 0.1f;
-        Debug.Log("速度 : " + speed +" 天 / 秒");
+        UpdateSpeedText();
+        //Debug.Log("速度 : " + speed +" 天 / 秒");
     }
-    
+
+    void UpdateSpeedText()
+    {
+        universalSpeed.text = "Speed : " + speed + " days / sec";
+    }
+
+    public void UpdatePlantInfo( string plantInfo)
+    {
+        info.text = plantInfo;
+    }
+
+    public void WrapPlantInfo()
+    {
+        info.text = "";
+    }
+
 }
