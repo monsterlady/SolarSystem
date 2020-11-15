@@ -9,11 +9,11 @@
   </a>
 </p>
 
->   A simplest and realistic version of the solar system map
+>   A simplest realistic solar system map
 
 ## What is this Project?
 
-Inspired by Star Citizens, completed a simplest and realistic version of the solar system map. The map compiled the planet's rotation inclination, revolution/rotation period and fitted orbits(just circle) based on the data from Wikipedia 2010. The planetary distance has been scaled and the scroll wheel can control the speed of time, this project's purpose is to provide a basic concept and perspective of the solar system and the way vector and quaternion works in Unity.
+Inspired by Star Citizens, completed a simplest realistic solar system map. The map compiled the planet's rotation inclination, revolution/rotation period and fitted orbits(just circle) based on the data from Wikipedia 2010. The planetary distance has been scaled and the scroll wheel can control the speed of time, this project's purpose is to provide a basic concept and perspective of the solar system and the way vector and quaternion works in Unity.
 ## Notes:
 #### :bulb: 1- How to play:
 **W,A,S,D** move the camera <br>
