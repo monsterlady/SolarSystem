@@ -34,7 +34,7 @@ Ruikang Xu
 
 
 ### ✨ [webGL Demo](https://monsterlady.github.io/SolarSystem/)
-![avatar](https://github.com/monsterlady/TicTacToeAI/blob/main/Assets/tictactoedemo.gif)
+![avatar](https://github.com/monsterlady/SolarSystem/blob/main/Assets/solsystemdemo.gif)
 
 ## Comments
 
